@@ -11,7 +11,7 @@ alias vimrc="v ~/dotfiles/vimrc"
 
 # git
 alias amend="g amend"
-alias patch="g ap"
+alias p="g ap"
 alias slog="g slog"
 alias branches="g branches"
 alias unstage="g unstage"

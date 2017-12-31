@@ -135,7 +135,7 @@ nnoremap J gT
 nnoremap K gt
 
 " i'm blind
-nnoremap <Leader>blind :hi CursorLine ctermbg=000050
+nnoremap <Leader>blind :hi CursorLine ctermbg=125
 
 " Numbers
 set number relativenumber
@@ -208,7 +208,7 @@ set wildmenu " enables a menu at the bottom of the vim window.
 set wildmode=list:longest,list:full
 
 " Source vimrc
-command! SourceVimrc source $MYVIMRC
+command! Source source $MYVIMRC
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
