@@ -38,6 +38,7 @@ call plug#begin('~/.vim/bundle')
 
 " Define bundles via Github repos
 Plug 'rakr/vim-one' " colorscheme
+Plug 'morhetz/gruvbox' " another color thing
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " fuzzy finder
 Plug 'christoomey/vim-run-interactive'

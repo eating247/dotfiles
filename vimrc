@@ -12,10 +12,8 @@ set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set mouse=a
-syntax on
 set clipboard=unnamed " copy pasta
 set cursorline "bc i'm blind
-highlight CursorLine ctermbg=000050 " and get lost easily
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -114,7 +112,9 @@ if executable('ag')
 endif
 
 " colorscheme
-colorscheme one
+colorscheme gruvbox
+" colorscheme one
+set background=dark
 
 " Make it obvious where 80 characters is
 set textwidth=80
@@ -133,6 +133,9 @@ nnoremap <C-P> :FZF<CR>
 " nav between tabs
 nnoremap J gT
 nnoremap K gt
+
+" i'm blind
+nnoremap <Leader>blind :hi CursorLine ctermbg=000050
 
 " Numbers
 set number relativenumber
