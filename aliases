@@ -4,3 +4,15 @@ alias v="$VISUAL"
 # work
 alias spree="cd ~/code/spreeworks"
 alias db="cd ~/dynamodb; java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb"
+
+# ez access
+alias aliases="v ~/dotfiles/aliases"
+alias vimrc="v ~/dotfiles/vimrc"
+
+# git
+alias amend="g amend"
+alias patch="g ap"
+alias slog="g slog"
+alias branches="g branches"
+alias unstage="g unstage"
+alias uncommit="g uncommit"
