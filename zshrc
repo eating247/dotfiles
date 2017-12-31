@@ -41,8 +41,21 @@ _load_settings() {
 }
 _load_settings "$HOME/.zsh/configs"
 
-# Local config
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+# pure prompt
+autoload -U promptinit; promptinit
+prompt pure
+
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+export AWS_DEFAULT_REGION=‘us-east-1’
+export AWS_REGION='us-east-1'
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
+function fd() {
+  (cd ~/code/spreeworks/ops && bundle exec bin/fd $*)
+}
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

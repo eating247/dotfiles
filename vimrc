@@ -11,6 +11,11 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
+set mouse=a
+syntax on
+set clipboard=unnamed " copy pasta
+set cursorline "bc i'm blind
+highlight CursorLine ctermbg=000050 " and get lost easily
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -20,11 +25,6 @@ endif
 
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
-endif
-
-" Load matchit.vim, but only if the user hasn't installed a newer version.
-if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
-  runtime! macros/matchit.vim
 endif
 
 filetype plugin indent on
@@ -57,6 +57,28 @@ augroup vimrcEx
     echoerr "The thoughtbot dotfiles require NeoVim or Vim 8"
   endif
 augroup END
+
+" ale
+let g:ale_linters = {
+      \ 'javascript': ['prettier-standard', 'standard'],
+      \ 'css': ['stylelint'],
+      \ 'scss': ['stylelint'],
+      \ 'ruby': ['rubocop', 'reek']
+      \ }
+
+let g:ale_fixers = {
+      \ 'javascript': ['prettier']
+      \ }
+
+let g:ale_set_quickfix = 0
+let g:ale_statusline_format = ['✕ %d', '△ %d', '=_=']
+let g:ale_sign_warning = '△'
+let g:ale_sign_error = '✕'
+let g:ale_echo_msg_error_str = 'Error'
+let g:ale_echo_msg_warning_str = 'Warning'
+let g:ale_echo_msg_format = '[%linter%] %s'
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
 
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
 " shell for syntax highlighting purposes.
@@ -91,13 +113,44 @@ if executable('ag')
   endif
 endif
 
+" colorscheme
+colorscheme one
+
 " Make it obvious where 80 characters is
 set textwidth=80
 set colorcolumn=+1
 
+" get out
+inoremap jk <esc>
+
+" smoother nav between lines
+nnoremap j gj
+nnoremap k gk
+
+" fuzzyfinder
+nnoremap <C-P> :FZF<CR>
+
+" nav between tabs
+nnoremap J gT
+nnoremap K gt
+
 " Numbers
-set number
+set number relativenumber
 set numberwidth=5
+
+" shortcuts
+map <C-n> :nohl<cr>
+map <C-t> <esc>:tabe<CR>
+map <C-c> <esc>:tabc<CR>
+nnoremap <Leader>h :History<CR>
+nnoremap <Leader>b :wa<CR>:Buffers<CR>
+
+" autocomplete parentheses/brackets
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap { {}<Esc>i
+" inoremap ' ''<Esc>i
+inoremap " ""<Esc>i
 
 " Tab completion
 " will insert tab at beginning of line,
@@ -117,18 +170,16 @@ inoremap <S-Tab> <c-n>
 " Switch between the last two files
 nnoremap <Leader><Leader> <c-^>
 
-" Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
-
 " vim-test mappings
 nnoremap <silent> <Leader>t :TestFile<CR>
 nnoremap <silent> <Leader>s :TestNearest<CR>
 nnoremap <silent> <Leader>l :TestLast<CR>
 nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <Leader>gt :TestVisit<CR>
+
+" update jest snapshots
+let g:test#runner_commands = ['Jest']
+nnoremap <Leader>u :Jest <C-r>=escape(expand("%"), ' ') . ' ' . '--updateSnapshot'<CR><CR>
 
 " Run commands that require an interactive shell
 nnoremap <Leader>r :RunInInteractiveShell<space>
@@ -146,19 +197,15 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-" Move between linting errors
-nnoremap ]r :ALENextWrap<CR>
-nnoremap [r :ALEPreviousWrap<CR>
-
-" Set spellfile to location that is guaranteed to exist, can be symlinked to
-" Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
-set spellfile=$HOME/.vim-spell-en.utf-8.add
-
-" Autocomplete with dictionary words when spell check is on
-set complete+=kspell
-
 " Always use vertical diffs
 set diffopt+=vertical
+
+set wildignore+=tmp/** " ignore stuff that can't be opened
+set wildmenu " enables a menu at the bottom of the vim window.
+set wildmode=list:longest,list:full
+
+" Source vimrc
+command! SourceVimrc source $MYVIMRC
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
