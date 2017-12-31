@@ -149,6 +149,8 @@ nnoremap <Leader>h :History<CR>
 nnoremap <Leader>b :wa<CR>:Buffers<CR>
 nnoremap <Leader>rel :set relativenumber!<CR>
 nnoremap v <C-v>e
+nmap <Leader>source :source ~/.vimrc<cr>
+nmap <Leader>plug :PlugInstall<cr>
 
 " autocomplete parentheses/brackets
 inoremap ( ()<Esc>i
@@ -208,9 +210,6 @@ set diffopt+=vertical
 set wildignore+=tmp/** " ignore stuff that can't be opened
 set wildmenu " enables a menu at the bottom of the vim window.
 set wildmode=list:longest,list:full
-
-" Source vimrc
-command! Source source $MYVIMRC
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
