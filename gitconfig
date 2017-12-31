@@ -20,7 +20,6 @@
   pf = push --force-with-lease
   sb = status --short --branch
   sla = log --oneline --decorate --graph -n 15
-  st = status
   uncommit = reset --soft HEAD^
   unstage = reset
 [core]

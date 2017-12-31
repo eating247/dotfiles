@@ -41,12 +41,6 @@ _load_settings() {
 }
 _load_settings "$HOME/.zsh/configs"
 
-# pure prompt
-autoload -U promptinit; promptinit
-prompt pure
-
-export VISUAL=nvim
-export EDITOR="$VISUAL"
 export AWS_DEFAULT_REGION=‘us-east-1’
 export AWS_REGION='us-east-1'
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
@@ -58,4 +52,5 @@ function fd() {
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
