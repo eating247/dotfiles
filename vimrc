@@ -143,10 +143,12 @@ set numberwidth=5
 
 " shortcuts
 map <C-n> :nohl<cr>
-map <C-t> <esc>:tabe<CR>
+map <C-t> <esc>:tabe<CR><C-p>
 map <C-c> <esc>:tabc<CR>
 nnoremap <Leader>h :History<CR>
 nnoremap <Leader>b :wa<CR>:Buffers<CR>
+nnoremap <Leader>rel :set relativenumber!<CR>
+nnoremap v <C-v>e
 
 " autocomplete parentheses/brackets
 inoremap ( ()<Esc>i
