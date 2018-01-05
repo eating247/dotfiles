@@ -13,7 +13,7 @@ set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set mouse=a
 set clipboard=unnamed " copy pasta
-set cursorline "bc i'm blind
+set cursorline
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -128,7 +128,7 @@ nnoremap j gj
 nnoremap k gk
 
 " fuzzyfinder
-nnoremap <C-P> :FZF<CR>
+nnoremap <C-p> :FZF<CR>
 
 " nav between tabs
 nnoremap J gT
@@ -148,9 +148,14 @@ map <C-c> <esc>:tabc<CR>
 nnoremap <Leader>h :History<CR>
 nnoremap <Leader>b :wa<CR>:Buffers<CR>
 nnoremap <Leader>rel :set relativenumber!<CR>
+nnoremap <Leader>col :set cursorcolumn!<CR>
 nnoremap v <C-v>e
 nmap <Leader>source :source ~/.vimrc<cr>
 nmap <Leader>plug :PlugInstall<cr>
+" rotate buffers
+map <Right> :bnext<CR>
+map <Left> :bprev<CR>
+map <Leader>a :Ag<space>
 
 " autocomplete parentheses/brackets
 inoremap ( ()<Esc>i
@@ -180,19 +185,11 @@ nnoremap <Leader><Leader> <c-^>
 " vim-test mappings
 nnoremap <silent> <Leader>t :TestFile<CR>
 nnoremap <silent> <Leader>tt :TestNearest<CR>
-" nnoremap <silent> <Leader>l :TestLast<CR>
-" nnoremap <silent> <Leader>a :TestSuite<CR>
-" nnoremap <silent> <Leader>gt :TestVisit<CR>
+nnoremap <silent> <Leader>last :TestLast<CR>
 
 " update jest snapshots
 let g:test#runner_commands = ['Jest']
 nnoremap <Leader>u :Jest <C-r>=escape(expand("%"), ' ') . ' ' . '--updateSnapshot'<CR><CR>
-
-" Run commands that require an interactive shell
-nnoremap <Leader>r :RunInInteractiveShell<space>
-
-" Treat <li> and <p> tags like the block tags they are
-let g:html_indent_tags = 'li\|p'
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
@@ -210,8 +207,3 @@ set diffopt+=vertical
 set wildignore+=tmp/** " ignore stuff that can't be opened
 set wildmenu " enables a menu at the bottom of the vim window.
 set wildmode=list:longest,list:full
-
-" Local config
-if filereadable($HOME . "/.vimrc.local")
-  source ~/.vimrc.local
-endif
