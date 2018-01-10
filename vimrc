@@ -150,12 +150,13 @@ nnoremap <Leader>b :wa<CR>:Buffers<CR>
 nnoremap <Leader>rel :set relativenumber!<CR>
 nnoremap <Leader>col :set cursorcolumn!<CR>
 nnoremap v <C-v>e
+map <Leader>a :Ag<space>
+
 nmap <Leader>source :source ~/.vimrc<cr>
 nmap <Leader>plug :PlugInstall<cr>
 " rotate buffers
 map <Right> :bnext<CR>
 map <Left> :bprev<CR>
-map <Leader>a :Ag<space>
 
 " autocomplete parentheses/brackets
 inoremap ( ()<Esc>i
