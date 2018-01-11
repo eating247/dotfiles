@@ -21,6 +21,7 @@
   slog = log --oneline --decorate --graph -n 15
   uncommit = reset --soft HEAD^
   unstage = reset
+  st = status
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input

@@ -202,6 +202,9 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" Enable jsx syntax highlighting in js files
+let g:jsx_ext_required = 0
+
 " Always use vertical diffs
 set diffopt+=vertical
 
