@@ -6,8 +6,6 @@ if [ -d "$HOME/.asdf" ]; then
   . $HOME/.asdf/asdf.sh
 elif command -v rbenv >/dev/null; then
   if [ -z $SILENCE_RBENV_DEPRECATION ]; then
-    echo "hi tingting wow you look so beautiful today, work hard and get"\
-         "these stax and snax ok"
   fi
 
   eval "$(rbenv init - --no-rehash)"
