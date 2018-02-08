@@ -153,7 +153,6 @@ nnoremap v <C-v>e
 map <Leader>a :Ag<space>
 
 nnoremap tt zt
-nnoremap bb zb
 nmap <Leader>source :source ~/.vimrc<cr>
 nmap <Leader>plug :PlugInstall<cr>
 " rotate buffers
