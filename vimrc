@@ -152,7 +152,7 @@ nnoremap <Leader>col :set cursorcolumn!<CR>
 nnoremap v <C-v>e
 map <Leader>a :Ag<space>
 
-nnoremap tt zt
+nnoremap top zt
 nmap <Leader>source :source ~/.vimrc<cr>
 nmap <Leader>plug :PlugInstall<cr>
 " rotate buffers
