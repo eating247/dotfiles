@@ -43,6 +43,8 @@ _load_settings "$HOME/.zsh/configs"
 
 export AWS_DEFAULT_REGION=‘us-east-1’
 export AWS_REGION='us-east-1'
+export AWS_ACCESS_KEY_ID=key
+export AWS_SECRET_ACCESS_KEY=secrets
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 function fd() {
@@ -54,3 +56,10 @@ function fd() {
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/ting/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/ting/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/ting/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/ting/node_modules/tabtab/.completions/sls.zsh
