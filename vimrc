@@ -1,6 +1,32 @@
-" Leader
-let mapleader = " "
+call plug#begin('~/.vim/bundle')
 
+Plug 'rakr/vim-one' " colorscheme
+Plug 'morhetz/gruvbox' " another color thing
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim' " fuzzy finder
+Plug 'christoomey/vim-run-interactive'
+Plug 'vim-airline/vim-airline' " status line
+Plug 'janko-m/vim-test'
+Plug 'pangloss/vim-javascript'
+Plug 'pbrisbin/vim-mkdir'
+Plug 'slim-template/vim-slim'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-surround'
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/tComment'
+Plug 'mxw/vim-jsx'
+Plug 'w0rp/ale'
+                                                                 
+call plug#end()                                                 
+
+let mapleader = " "
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
@@ -14,16 +40,7 @@ set autowrite     " Automatically :write before running commands
 set mouse=a
 set clipboard=unnamed " copy pasta
 set cursorline
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
-endif
-
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
-endif
+syntax on
 
 filetype plugin indent on
 
@@ -44,16 +61,12 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
 
   " ALE linting events
-  if g:has_async
-    set updatetime=1000
-    let g:ale_lint_on_text_changed = 0
-    autocmd CursorHold * call ale#Lint()
-    autocmd CursorHoldI * call ale#Lint()
-    autocmd InsertEnter * call ale#Lint()
-    autocmd InsertLeave * call ale#Lint()
-  else
-    echoerr "The thoughtbot dotfiles require NeoVim or Vim 8"
-  endif
+  set updatetime=1000
+  let g:ale_lint_on_text_changed = 0
+  autocmd CursorHold * call ale#Lint()
+  autocmd CursorHoldI * call ale#Lint()
+  autocmd InsertEnter * call ale#Lint()
+  autocmd InsertLeave * call ale#Lint()
 augroup END
 
 " ale
@@ -100,12 +113,6 @@ set nojoinspaces
 if executable('ag')
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
 
   if !exists(":Ag")
     command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
