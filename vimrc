@@ -137,7 +137,7 @@ nnoremap j gj
 nnoremap k gk
 
 " fuzzyfinder
-nnoremap <C-p> :FZF<CR>
+nnoremap <C-p> :Files<CR>
 
 " nav between tabs
 nnoremap J gT
