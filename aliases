@@ -2,9 +2,8 @@ alias dot="cd ~/dotfiles"
 alias v="$VISUAL"
 
 # work
-alias spree="cd ~/code/spreeworks"
-alias db="cd ~/dynamodb; java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb"
-
+alias ink="cd ~/src"
+#
 # ez access
 alias aliases="v ~/dotfiles/aliases"
 alias vimrc="v ~/dotfiles/vimrc"

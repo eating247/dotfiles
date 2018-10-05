@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/bundle')
 
-Plug 'rakr/vim-one' " colorscheme
+" Plug 'rakr/vim-one' " colorscheme
 Plug 'morhetz/gruvbox' " another color thing
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " fuzzy finder
