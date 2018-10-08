@@ -1,0 +1,28 @@
+deployment:
+
+cd autotomy
+git pull
+
+BRANCH=your-branch HOSTS=my-app01.staging.customink.com bundle exec cap apps:current_app:staging deploy
+
+cibot train APP_NAME add CHANGE
+
+merge via github
+
+check Travis to see if build passes
+
+deploy to master staging
+HOSTS=my-app01.staging.customink.com bundle exec cap apps:current_app:staging deploy
+
+deploy to production
+bundle exec cap apps:current_app:production deploy
+
+monitor + verify deploy:
+rollbar
+new relic
+
+send email notification
+delete branch
+
+get off train
+cibot train current_app verify

@@ -3,10 +3,13 @@ alias v="$VISUAL"
 
 # work
 alias ink="cd ~/src"
+alias rbe="cd ~/src/rails_backend"
+alias auto="cd ~/src/autotomy"
 #
 # ez access
 alias aliases="v ~/dotfiles/aliases"
 alias vimrc="v ~/dotfiles/vimrc"
+alias inknotes="cat ~/dotfiles/ink_notes.txt"
 
 # git
 alias amend="g amend"
