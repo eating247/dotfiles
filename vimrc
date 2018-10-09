@@ -32,7 +32,7 @@ let mapleader = " "
 set autowrite     " Automatically :write before running commands
 set background=dark
 colorscheme gruvbox
-colorscheme one
+" colorscheme one
 set backspace=2   " Backspace deletes like most programs in insert mode
 set clipboard=unnamed " copy pasta
 set colorcolumn=+1
