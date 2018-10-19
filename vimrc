@@ -40,7 +40,9 @@ set cursorline
 set diffopt+=vertical
 set expandtab
 set history=50
-set inccommand=split
+if has('nvim')
+  set inccommand=split
+endif
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set list listchars=tab:»·,trail:·,nbsp:·
