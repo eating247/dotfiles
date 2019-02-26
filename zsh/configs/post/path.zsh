@@ -12,6 +12,6 @@ elif command -v rbenv >/dev/null; then
 fi
 
 # mkdir .git/safe in the root of repositories you trust
-PATH=".git/safe/../../bin:$PATH"
+# PATH=".git/safe/../../bin:$PATH"
 
 export -U PATH

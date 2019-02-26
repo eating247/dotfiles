@@ -150,9 +150,6 @@ nnoremap <Leader>a :Ag<space>
 nnoremap top zt
 nmap <Leader>source :source ~/.vimrc<cr>
 nmap <Leader>plug :PlugInstall<cr>
-" rotate buffers
-nnoremap <Right> :bnext<CR>
-nnoremap <Left> :bprev<CR>
 
 " autocomplete parentheses/brackets
 inoremap ( ()<Esc>i

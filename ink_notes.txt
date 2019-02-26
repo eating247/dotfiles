@@ -1,9 +1,7 @@
-deployment:
-
-cd autotomy
-git pull
+git rebase -i master
 
 BRANCH=your-branch HOSTS=my-app01.staging.customink.com bundle exec cap apps:current_app:staging deploy
+to rollback: ... deploy:rollback
 
 cibot train APP_NAME add CHANGE
 
@@ -26,3 +24,6 @@ delete branch
 
 get off train
 cibot train current_app verify
+
+bundle exec cap apps:mint:production list:servers
+bundle exec cap apps:print_cost_tool:production deploy:restart
