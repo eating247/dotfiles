@@ -177,7 +177,6 @@ nnoremap <Leader><Leader> <c-^>
 " vim-test mappings
 nnoremap <silent> <Leader>t :TestFile<CR>
 nnoremap <silent> <Leader>tt :TestNearest<CR>
-nnoremap <silent> <Leader>last :TestLast<CR>
 
 " update jest snapshots
 let g:test#runner_commands = ['Jest']

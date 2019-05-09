@@ -12,7 +12,7 @@ alias vimrc="v ~/dotfiles/vimrc"
 alias ll='ls -alGh $@'
 alias be='bundle exec'
 alias bec='bundle exec cap'
-alias inknotes='cat ~/dotfiles/ink_notes.txt'
+alias inknotes='cat ~/dotfiles/inknotes.txt'
 
 # git
 alias amend="g amend"
