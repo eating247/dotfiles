@@ -1,0 +1,24 @@
+deploy to a specific staging server
+    BRANCH=your-branch HOSTS=etc.staging.customink.com bundle exec cap apps:current_app:staging deploy
+
+deploy to prod
+  - cibot train app add change
+  - merge via github, confirm Travis build passes
+  - deploy to master staging
+      bundle exec cap apps:current_app:staging deploy
+  - deploy to prod
+      bundle exec cap apps:current_app:production deploy
+  - monitor + verify deploy:
+      rollbar
+      new relic
+  - send email
+  - delete branch
+  - cibot train current_app verify
+
+other commmon commands
+  list:servers
+  deploy:restart
+  deploy:rollback
+  tail -f log/[env].log | grep search-phrase
+  Rails.logger.info
+  sidekiq_stop/sidekiq_start for RFE
