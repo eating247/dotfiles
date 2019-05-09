@@ -49,10 +49,13 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export ORACLE_HOME=/usr/local/opt/oracle-instant-client
 export DYLD_LIBRARY_PATH=/usr/local/opt/oracle-instant-client/lib
 
+ssh-add -K ~/.ssh/id_rsa
 STRAP_BIN_DIR=~/src/strap/bin
 if [ -d $STRAP_BIN_DIR ]; then
  PATH=“$STRAP_BIN_DIR:${PATH}”
 fi
+eval "$(nodenv init -)"
+eval "$(rbenv init -)"
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases

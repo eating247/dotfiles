@@ -29,3 +29,7 @@
   prune = true
 [rebase]
   autosquash = true
+[credential]
+	helper = osxkeychain
+[github]
+	user = eating247
