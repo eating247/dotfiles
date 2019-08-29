@@ -10,9 +10,9 @@ alias auto="cd ~/src/autotomy"
 alias aliases="v ~/dotfiles/aliases"
 alias vimrc="v ~/dotfiles/vimrc"
 alias ll='ls -alGh $@'
-alias be='bundle exec'
 alias bec='bundle exec cap'
 alias inknotes='cat ~/dotfiles/inknotes.txt'
+alias weather='curl wttr.in/'
 
 # git
 alias amend="g amend"

@@ -48,6 +48,7 @@ export AWS_SECRET_ACCESS_KEY=secrets
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export ORACLE_HOME=/usr/local/opt/oracle-instant-client
 export DYLD_LIBRARY_PATH=/usr/local/opt/oracle-instant-client/lib
+export PATH=/opt/apache-maven-3.6.1/bin:$PATH
 
 STRAP_BIN_DIR=~/src/strap/bin
 if [ -d $STRAP_BIN_DIR ]; then
